@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const HomePage = () =>{
     return (
@@ -22,6 +23,7 @@ const HomePage = () =>{
                         <p className="text-[#898989] text-base mt-1 mb-2">Stylish cafe chair</p>
                         <p className="font-semibold text-xl text-red-600 mb-3" >2.500.000đ</p>
                         <button className=" border border-solid border-yellow-700 text-yellow-700 w-full font-semibold text-base py-2 hover:bg-yellow-700 hover:text-white"><Link to='cart'>Add to cart</Link></button>
+                        <button className=" border border-solid border-yellow-700 text-yellow-700 w-full font-semibold text-base py-2 hover:bg-yellow-700 hover:text-white"><Link to="/productcart">Add to Cart</Link></button>
                     </div>
                 </div>
                 <div>
@@ -32,6 +34,7 @@ const HomePage = () =>{
                         <h3 className="font-semibold text-xl">Syltherine</h3>
                         <p className="text-[#898989] text-base mt-1 mb-2">Stylish cafe chair</p>
                         <p className="font-semibold text-xl text-red-600 mb-3" >2.500.000đ</p>
+                        <button className=" border border-solid border-yellow-700 text-yellow-700 w-full font-semibold text-base py-2 hover:bg-yellow-700 hover:text-white"><Link to="/productcart">Add to Cart</Link></button>
                         <button className=" border border-solid border-yellow-700 text-yellow-700 w-full font-semibold text-base py-2 hover:bg-yellow-700 hover:text-white"><Link to='cart'>Add to cart</Link></button>
                     </div>
                 </div>
@@ -43,6 +46,7 @@ const HomePage = () =>{
                         <h3 className="font-semibold text-xl">Syltherine</h3>
                         <p className="text-[#898989] text-base mt-1 mb-2">Stylish cafe chair</p>
                         <p className="font-semibold text-xl text-red-600 mb-3" >2.500.000đ</p>
+                        <button className=" border border-solid border-yellow-700 text-yellow-700 w-full font-semibold text-base py-2 hover:bg-yellow-700 hover:text-white"><Link to="/productcart">Add to Cart</Link></button>
                         <button className=" border border-solid border-yellow-700 text-yellow-700 w-full font-semibold text-base py-2 hover:bg-yellow-700 hover:text-white"><Link to='cart'>Add to cart</Link></button>
                     </div>
                 </div>
@@ -54,6 +58,7 @@ const HomePage = () =>{
                         <h3 className="font-semibold text-xl">Syltherine</h3>
                         <p className="text-[#898989] text-base mt-1 mb-2">Stylish cafe chair</p>
                         <p className="font-semibold text-xl text-red-600 mb-3" >2.500.000đ</p>
+                        <button className=" border border-solid border-yellow-700 text-yellow-700 w-full font-semibold text-base py-2 hover:bg-yellow-700 hover:text-white"><Link to="/productcart">Add to Cart</Link></button>
                         <button className=" border border-solid border-yellow-700 text-yellow-700 w-full font-semibold text-base py-2 hover:bg-yellow-700 hover:text-white"><Link to='cart'>Add to cart</Link></button>
                     </div>
                 </div>

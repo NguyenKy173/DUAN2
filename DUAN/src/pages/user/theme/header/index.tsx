@@ -1,6 +1,7 @@
 import { AiOutlineHeart, AiOutlineSearch, AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
 import "./style.css"
 import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Header = () => {
     return (
         <>
@@ -11,6 +12,10 @@ const Header = () => {
                 <li className="hover:hover:text-amber-500"><Link to='shop'>Home</Link></li>
                 <li className="hover:hover:text-amber-500"><a href="">About</a></li>
                 <li className="hover:hover:text-amber-500"><a href="">Contact</a></li>
+                <li className="hover:hover:text-amber-500"><Link to ="">Home</Link></li>
+                <li className="hover:hover:text-amber-500"><Link to ="">Shop</Link></li>
+                <li className="hover:hover:text-amber-500"><Link to ="">About</Link></li>
+                <li className="hover:hover:text-amber-500"><Link to ="">Contact</Link></li>
             </ul>
             {/* <div className="flex gap-4">
                 <span className="material-symbols-outlined">person</span>
@@ -19,7 +24,7 @@ const Header = () => {
                 <span className="material-symbols-outlined">shopping_cart</span>
             </div> */}
             <div className="flex gap-4">
-                <span className="material-symbols-outlined icon"><AiOutlineUser /></span>
+                <span className="material-symbols-outlined icon"><Link to ="/homeuser"><AiOutlineUser /></Link></span>
                 <span className="material-symbols-outlined icon"><AiOutlineSearch /></span>
                 <span className="material-symbols-outlined icon"><AiOutlineHeart /></span>
                 <span className="material-symbols-outlined icon"  ><Link to='cart'><AiOutlineShoppingCart /></Link></span>

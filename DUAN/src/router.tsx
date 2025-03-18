@@ -1,6 +1,9 @@
 import { Route,Routes } from "react-router-dom";
 import { ROUTERS } from "./utils/router";
 import HomePage from "./pages/user/homePage";
+import ProductCart from "./pages/user/productCart";
+import Payment from "./pages/user/payment";
+import HomeUser from "./pages/user/homeUser";
 import MasterLayout from "./pages/user/theme/MasterLayout";
 import ShopPage from "./pages/user/shopPage/ShopPage";
 import CartPage from "./pages/user/cartPage/CartPage";
@@ -18,7 +21,19 @@ const renderUserRouter = () => {
         {
             path: ROUTERS.USER.CART,
             component: <CartPage/>
-        }
+        },
+        {
+            path:ROUTERS.USER.PRODUCTCART,
+            component: <ProductCart/>
+        },
+        {
+            path:ROUTERS.USER.PAYMENT,
+            component: <Payment/>
+        },
+        {
+            path:ROUTERS.USER.HOMEUSER,
+            component: <HomeUser/>
+        },
     ]
     return(
         <MasterLayout>
