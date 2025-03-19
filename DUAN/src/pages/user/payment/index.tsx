@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const Payment = () => {
     return (
         <>
@@ -99,7 +100,7 @@ const Payment = () => {
                     {/* <!-- END PAYMENT-METHOD --> */}
                      <p className=" text-[#262626]">Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our <span className="font-semibold">privacy policy.</span> </p>
                      <div className="text-center mt-8">
-                        <a href="./index.html" className="border border-solid border-yellow-600 text-yellow-600 font-semibold py-2 px-24 inline-block hover:bg-yellow-600 hover:text-white">Place order</a>
+                        <Link to="" className="border border-solid border-yellow-600 text-yellow-600 font-semibold py-2 px-24 inline-block hover:bg-yellow-600 hover:text-white">Place order</Link>
                      </div>
                 </div>
             </div>
