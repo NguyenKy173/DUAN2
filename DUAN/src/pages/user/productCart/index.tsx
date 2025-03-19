@@ -37,6 +37,8 @@ const ProductCart = () => {
                         <span className="font-bold text-red-600 text-[20px]">25.000.000đ</span>
                     </p>
                     <a href="./payment.html" className="border border-solid border-yellow-500 text-yellow-500 w-full inline-block text-center py-2 hover:bg-yellow-500 hover:text-white">Check out</a>
+
+
                 </div>
 
             </section>

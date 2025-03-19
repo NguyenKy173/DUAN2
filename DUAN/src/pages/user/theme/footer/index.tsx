@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const Footer = () =>{
     return (
         <>
@@ -10,10 +11,10 @@ const Footer = () =>{
             <div>
                 <h3 className="font-semibold text-xl mb-4">Sitemap</h3>
                 <ul>
-                    <li className="mb-4"><a href="">Home</a></li>
-                    <li className="mb-4"><a href="">Shop</a></li>
-                    <li className="mb-4"><a href="">About</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li className="mb-4"><Link to="/">Home</Link></li>
+                    <li className="mb-4"><Link to="/shop">Shop</Link></li>
+                    <li className="mb-4"><Link to="">About</Link></li>
+                    <li><Link to="">Contact</Link></li>
                 </ul>
             </div>
             <div>

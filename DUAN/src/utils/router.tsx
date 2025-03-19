@@ -2,9 +2,10 @@ export const ROUTERS ={
     USER:{
         HOME:"",
         SHOP:"shop",
-        CART:'cart',        PRODUCTCART:"productcart",
+        CART:'cart',        
         PAYMENT:"payment",
         HOMEUSER:"homeuser",
+        PRODUCTDETAIL:"productdetail"
 
     }
 }
