@@ -6,7 +6,7 @@ const ProductMain = () => {
     <div className="grid grid-cols-3 gap-8">
     <div>
         <div className="overflow-hidden">
-            <Link to="/productdetail"><img src="/image 1.png" alt="" className="hover:scale-125 duration-1000"/></Link>
+            <Link to="/productdetail"><img src="/image 1.jpg" alt="" className="hover:scale-125 duration-1000"/></Link>
         </div>
         <div className="bg-[#F5F5F5] p-4">
             <h3 className="font-semibold text-xl">Syltherine</h3>
@@ -30,7 +30,7 @@ const ProductMain = () => {
     </div>
     <div>
         <div className="overflow-hidden">
-            <img src="/image 3.png"  alt="" className="hover:scale-125 duration-1000"/>
+            <img src="/image 3.jpg"  alt="" className="hover:scale-125 duration-1000"/>
         </div>
         <div className="bg-[#F5F5F5] p-4">
             <h3 className="font-semibold text-xl">Lolito</h3>
@@ -42,7 +42,7 @@ const ProductMain = () => {
     </div>
     <div>
         <div className="overflow-hidden">
-            <img src="/image 1.png"  alt="" className="hover:scale-125 duration-1000"/>
+            <img src="/image 1.jpg"  alt="" className="hover:scale-125 duration-1000"/>
         </div>
         <div className="bg-[#F5F5F5] p-4">
             <h3 className="font-semibold text-xl">Syltherine</h3>
@@ -66,7 +66,7 @@ const ProductMain = () => {
     </div>
     <div>
         <div className="overflow-hidden">
-            <img src="/image 3.png"  alt="" className="hover:scale-125 duration-1000"/>
+            <img src="/image 3.jpg"  alt="" className="hover:scale-125 duration-1000"/>
         </div>
         <div className="bg-[#F5F5F5] p-4">
             <h3 className="font-semibold text-xl">Lolito</h3>
@@ -78,7 +78,7 @@ const ProductMain = () => {
     </div>
     <div>
         <div className="overflow-hidden">
-            <img src="/image 1.png"  alt="" className="hover:scale-125 duration-1000"/>
+            <img src="/image 1.jpg"  alt="" className="hover:scale-125 duration-1000"/>
         </div>
         <div className="bg-[#F5F5F5] p-4">
             <h3 className="font-semibold text-xl">Syltherine</h3>
@@ -102,7 +102,7 @@ const ProductMain = () => {
     </div>
     <div>
         <div className="overflow-hidden">
-            <img src="/image 3.png"  alt="" className="hover:scale-125 duration-1000"/>
+            <img src="/image 3.jpg"  alt="" className="hover:scale-125 duration-1000"/>
         </div>
         <div className="bg-[#F5F5F5] p-4">
             <h3 className="font-semibold text-xl">Lolito</h3>
