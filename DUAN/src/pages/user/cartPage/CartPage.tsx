@@ -42,7 +42,7 @@ const CartPage = () => {
                     <span>Total</span>
                     <span className="font-bold text-red-500 text-[20px]">25.000.000</span>
                 </p>
-                <Link to="/payment" className="border border-solid border-yellow-500 text-yellow-600 w-full inline-block text-center py-2 hover:bg-yellow-600 hover:text-white ">Checkout</Link>
+                <Link to='/payment'  className="border border-solid border-yellow-500 text-yellow-600 w-full inline-block text-center py-2 hover:bg-yellow-600 hover:text-white ">Checkout</Link>
             </div>
         </section>
      </main>
