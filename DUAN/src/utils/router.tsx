@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 export const ROUTERS ={
     USER:{
         HOME:"",
@@ -7,3 +8,15 @@ export const ROUTERS ={
 
     }
 }
+=======
+export const ROUTERS = {
+  USER: {
+    HOME: "",
+    SHOP: "shop",
+    CART: "cart",
+    PRODUCTCART: "productcart",
+    PAYMENT: "payment",
+    HOMEUSER: "homeuser",
+  },
+};
+>>>>>>> Stashed changes
