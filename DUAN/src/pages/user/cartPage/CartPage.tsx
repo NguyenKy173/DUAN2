@@ -1,4 +1,4 @@
-import React from 'react'
+
 import './CartPage.css'
 import { MdDelete } from "react-icons/md";
 import { Link } from 'react-router-dom';

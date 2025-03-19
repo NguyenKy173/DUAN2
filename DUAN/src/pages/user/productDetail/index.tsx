@@ -1,4 +1,5 @@
 import "./productDetail.css"
+import { Link } from "react-router-dom";
 const ProductDetail = () => {
     return (
         <>
@@ -57,7 +58,7 @@ const ProductDetail = () => {
                                 <input type="text" value="1" className="w-[30px] text-center"/>
                                 <button className="py-2 px-4">+</button>
                             </div>
-                            <button type="submit" className="border border-solid border-yellow-600 rounded py-2 px-10 ml-3 hover:bg-yellow-600 hover:text-white"><a href="./cart.html">Add to cart</a></button>
+                            <button type="submit" className="border border-solid border-yellow-600 rounded py-2 px-10 ml-3 hover:bg-yellow-600 hover:text-white"><Link to="/cart">Add to cart</Link></button>
                             <button type="submit" className="border border-solid border-yellow-600 rounded py-2 px-10 ml-3 hover:bg-neutral-800 hover:text-white">+ Compared</button>
                         </form>
                     </div>
@@ -93,46 +94,46 @@ const ProductDetail = () => {
             <div className="grid grid-cols-4 gap-8">
                 <div>
                     <div className="overflow-hidden">
-                        <img src="./image 1.png" alt="" className="hover:scale-125 duration-1000"/>
+                    <Link to ="/productdetail"><img src="./image 1.png" alt="" className="hover:scale-125 duration-1000"/></Link>
                     </div>
                     <div className="bg-[#F5F5F5] p-4">
                         <h3 className="font-semibold text-xl">Syltherine</h3>
                         <p className="text-[#898989] text-base mt-1 mb-2">Stylish cafe chair</p>
                         <p className="font-semibold text-xl text-red-600 mb-3" >2.500.000đ</p>
-                        <button className=" border border-solid border-yellow-700 text-yellow-700 w-full font-semibold text-base py-2 hover:bg-yellow-700 hover:text-white">Add to cart</button>
+                        <button className=" border border-solid border-yellow-700 text-yellow-700 w-full font-semibold text-base py-2 hover:bg-yellow-700 hover:text-white"><Link to="/productdetail">Add to cart</Link></button>
                     </div>
                 </div>
                 <div>
                     <div className="overflow-hidden">
-                        <img src="./image 1.png" alt="" className="hover:scale-125 duration-1000"/>
+                        <Link to ="/productdetail"><img src="./image 1.png" alt="" className="hover:scale-125 duration-1000"/></Link>
                     </div>
                     <div className="bg-[#F5F5F5] p-4">
                         <h3 className="font-semibold text-xl">Syltherine</h3>
                         <p className="text-[#898989] text-base mt-1 mb-2">Stylish cafe chair</p>
                         <p className="font-semibold text-xl text-red-600 mb-3" >2.500.000đ</p>
-                        <button className=" border border-solid border-yellow-700 text-yellow-700 w-full font-semibold text-base py-2 hover:bg-yellow-700 hover:text-white">Add to cart</button>
+                        <button className=" border border-solid border-yellow-700 text-yellow-700 w-full font-semibold text-base py-2 hover:bg-yellow-700 hover:text-white"><Link to="/cart">Add to cart</Link></button>
                     </div>
                 </div>
                 <div>
                     <div className="overflow-hidden">
-                        <img src="./image 1.png" alt="" className="hover:scale-125 duration-1000"/>
+                        <Link to ="/productdetail"><img src="./image 1.png" alt="" className="hover:scale-125 duration-1000"/></Link>
                     </div>
                     <div className="bg-[#F5F5F5] p-4">
                         <h3 className="font-semibold text-xl">Syltherine</h3>
                         <p className="text-[#898989] text-base mt-1 mb-2">Stylish cafe chair</p>
                         <p className="font-semibold text-xl text-red-600 mb-3" >2.500.000đ</p>
-                        <button className=" border border-solid border-yellow-700 text-yellow-700 w-full font-semibold text-base py-2 hover:bg-yellow-700 hover:text-white">Add to cart</button>
+                        <button className=" border border-solid border-yellow-700 text-yellow-700 w-full font-semibold text-base py-2 hover:bg-yellow-700 hover:text-white"><Link to="/cart">Add to cart</Link></button>
                     </div>
                 </div>
                 <div>
                     <div className="overflow-hidden">
-                        <img src="./image 1.png" alt="" className="hover:scale-125 duration-1000"/>
+                        <Link to ="/productdetail"><img src="./image 1.png" alt="" className="hover:scale-125 duration-1000"/></Link>
                     </div>
                     <div className="bg-[#F5F5F5] p-4">
                         <h3 className="font-semibold text-xl">Syltherine</h3>
                         <p className="text-[#898989] text-base mt-1 mb-2">Stylish cafe chair</p>
                         <p className="font-semibold text-xl text-red-600 mb-3" >2.500.000đ</p>
-                        <button className=" border border-solid border-yellow-700 text-yellow-700 w-full font-semibold text-base py-2 hover:bg-yellow-700 hover:text-white">Add to cart</button>
+                        <button className=" border border-solid border-yellow-700 text-yellow-700 w-full font-semibold text-base py-2 hover:bg-yellow-700 hover:text-white"><Link to="/cart">Add to cart</Link></button>
                     </div>
                 </div>
             </div>
