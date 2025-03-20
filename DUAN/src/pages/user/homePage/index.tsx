@@ -38,8 +38,6 @@ const HomePage = () =>{
         }
         return res.json();
     };
-    
-    
         const { data: categories } = useQuery({
             queryKey: ["categories"],
             queryFn: fetchCategories,
@@ -47,9 +45,6 @@ const HomePage = () =>{
 
     if (isLoading) return <p className="text-center text-lg">Loading...</p>;
     if (isError) return <p className="text-center text-red-500">Không tìm thấy sản phẩm</p>;
-
-
-    
 
     const responsive: ResponsiveType = {
         superLargeDesktop: {
@@ -146,11 +141,6 @@ const HomePage = () =>{
                         {categories?.map((item:any) => (
                             <div key={item.id} className="relative group">
                                 <img src={item.image} alt="" className="w-100" />
-                                {/* <Link to="/shop"
-                                    className="absolute left-1/2 -translate-x-1/2 bottom-4 bg-black/50 text-white text-center px-4 py-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:--color-yellow-700"
-                                >
-                                   <p className="mota">{item.name}</p> 
-                                </Link> */}
                                 <Link to="/shop"
                                     className="absolute left-1/2 -translate-x-1/2 bottom-4 bg-black/50 text-white text-center px-4 py-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-yellow-700"
                                 >
