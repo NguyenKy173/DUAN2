@@ -90,11 +90,7 @@ const HomePage = () =>{
         );
     return (
         <>
-        <section >
-         <img src="/banner.jpg" alt="" className="w-full"/>
-        </section>
-            {/* <!-- End Banner --> */}
-        <section className="container max-w-screen-xl m-auto mt-16">
+           <section className="container max-w-screen-xl m-auto mt-16">
             <div className="flex justify-between items-center mb-4">
                 <h2 className="font-semibold text-[40px]">New product</h2>
                 <Link to="/shop" className="border border-solid border-yellow-500 px-4 py-2 font-semibold text-base text-yellow-500">View all product</Link>
