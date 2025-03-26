@@ -3,12 +3,13 @@ import Carousel,{ ResponsiveType } from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useQuery } from "@tanstack/react-query";
 import "./style.css"
+import { useCart } from "../../../contact/cartContact";
 
 interface Product {
     id: number;
     name: string;
     description: string;
-    price: string;
+    price: number;
     image: string;
   }
 
@@ -19,6 +20,8 @@ interface Product {
     return response.json();
 }
 const HomePage = () =>{
+
+    const { addToCart } = useCart();
 
     const fomatter = (Number:any) => {
         return new Intl.NumberFormat("vi-VN",{
@@ -116,7 +119,8 @@ const HomePage = () =>{
                             <p className="font-semibold text-xl text-red-600 mb-3">{fomatter(item.price)}</p>
 
                             <Link to="/cart">
-                            <button className="border border-yellow-700 text-yellow-700 w-full font-semibold text-base py-2 hover:bg-yellow-700 hover:text-white transition">
+                            <button onClick={() => addToCart({ id: item.id, name: item.name, price: item.price, image: item.image, quantity: 1 })}
+              className="border border-yellow-700 text-yellow-700 w-full font-semibold text-base py-2 hover:bg-yellow-700 hover:text-white transition">
                                 Add to Cart
                             </button>
                             </Link>
