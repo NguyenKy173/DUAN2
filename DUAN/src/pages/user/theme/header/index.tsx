@@ -26,9 +26,7 @@ const Header = () => {
                 <span className="material-symbols-outlined icon"  ><Link to='cart'><AiOutlineShoppingCart /></Link></span>
             </div>
         </section>
-        <section >
-         <img src="/banner.jpg" alt="" className="w-full"/>
-        </section>
+   
         </>
     )
 }
