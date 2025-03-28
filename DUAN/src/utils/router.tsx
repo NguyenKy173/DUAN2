@@ -7,8 +7,5 @@ export const ROUTERS ={
         HOMEUSER:"homeuser",
         PRODUCTDETAIL:"/:id/productdetail"
 
-    },
-    ADMIN: {
-        // DASHBOARD: "/admin/dashboard",
     }
 }

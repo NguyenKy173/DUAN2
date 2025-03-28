@@ -5,11 +5,11 @@ import { useState } from "react";
 
 const Sidebar = () => {
     const [isExpanded, setIsExpanded] = useState(false);
-    const [dropdowns, setDropdowns] = useState<{ auth: boolean; multi: boolean; multiTwo: boolean }>({
-        auth: false,
-        multi: false,
-        multiTwo: false
-    });
+    // const [dropdowns, setDropdowns] = useState<{ auth: boolean; multi: boolean; multiTwo: boolean }>({
+    //     auth: false,
+    //     multi: false,
+    //     multiTwo: false
+    // });
 
     // Hàm toggle sidebar
     const toggleSidebar = () => {
@@ -17,12 +17,12 @@ const Sidebar = () => {
     };
 
     // Hàm toggle dropdown (menu được đảm bảo có kiểu dữ liệu rõ ràng)
-    const toggleDropdown = (menu: keyof typeof dropdowns) => {
-        setDropdowns((prev) => ({
-            ...prev,
-            [menu]: !prev[menu]
-        }));
-    };
+    // const toggleDropdown = (menu: keyof typeof dropdowns) => {
+    //     setDropdowns((prev) => ({
+    //         ...prev,
+    //         [menu]: !prev[menu]
+    //     }));
+    // };
     return (
         <>
         <Helmet>
@@ -102,26 +102,32 @@ const Sidebar = () => {
     {/* Sidebar content */}
     <ul className="sidebar-nav">
       <li className="sidebar-item">
-        <a className="sidebar-link has-dropdown" onClick={() => toggleDropdown("multi")}> 
+        <Link to="/admin/adminList" className="sidebar-link"> {/* Sử dụng Link thay vì a */}
           <i className='bx bxs-user-account'></i>
-          <span>List</span>
-        </a>
-        {dropdowns.multi && (
-          <ul className="sidebar-dropdown list-unstyled">
-            <li className="sidebar-item">
-              <Link to="/admin/adminList" className="sidebar-link">List Sản Phẩm</Link>
-              <Link to="/header-project" className="sidebar-link">List User</Link>
-            </li>
-          </ul>
-        )}
+          <span>Quản lí sản phẩm</span>
+        </Link>
+      </li>
+      <li className="sidebar-item">
+        <Link to="/admin/userList" className="sidebar-link"> {/* Sử dụng Link thay vì a */}
+          <i className='bx bxs-user'></i>
+          <span>Quản lí khách hàng</span>
+        </Link>
+      </li>
+      <li className="sidebar-item">
+        <Link to="/admin/adminListOrders" className="sidebar-link"> {/* Sử dụng Link thay vì a */}
+          <i className='bx bxs-cart'></i>
+          <span>Quản lí đơn hàng</span>
+        </Link>
       </li>
     </ul>
 
+    
+
     <div className="sidebar-footer">
-      <a className="sidebar-link">
+      <Link to="/" className="sidebar-link"> {/* Thay <a> bằng <Link> và dùng to="/" để trỏ về trang home */}
         <i className="bx bxs-log-out"></i>
         <span> LogOut</span>
-      </a>
+      </Link>
     </div>
   </aside>
 
