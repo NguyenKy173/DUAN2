@@ -83,21 +83,22 @@ const ProductDetail = () => {
                     <button className="py-2 px-4">+</button>
                   </div>
                   <Link to="/cart">
-                    <button
-                      onClick={() =>
-                        addToCart({
-                          id: products.id,
-                          name: products.name,
-                          price: products.price,
-                          image: products.image,
-                          quantity: 1,
-                        })
-                      }
-                      className="border border-solid border-yellow-600 rounded py-2 px-10 ml-3 hover:bg-yellow-600 hover:text-white"
-
-                    >
+                  <button 
+                      onClick={(e) => {
+                          e.preventDefault();
+                          const userId = localStorage.getItem("userId");
+                          if (!userId) {
+                              alert("Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng!");
+                              return;
+                          }
+                          if (products) {
+                              addToCart(products.id); // ✅ Dùng 'products.id' thay vì 'item.id'
+                          }
+                      }}
+                      className="border border-yellow-700 text-yellow-700 w-40 font-semibold text-base py-2 hover:bg-yellow-700 hover:text-white transition ml-3">
                       Add to Cart
-                    </button>
+                  </button>
+
                   </Link>
                   <button
                     type="submit"

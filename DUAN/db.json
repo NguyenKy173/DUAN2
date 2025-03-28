@@ -45,8 +45,6 @@
       "name": "Leviosa",
       "description": "Elegant modern sofa",
       "price": 1800000,
-      "description": "Elegant modern sofaaaa",
-      "categoryId": 2,
       "image": "/image 2.jpg",
       "categoryId": "2"
     },
@@ -55,7 +53,6 @@
       "name": "Lolito",
       "price": 2000000,
       "description": "Luxury big sofa",
-      "categoryId": 2,
       "image": "/image 3.jpg",
       "categoryId": "2"
     },
@@ -76,12 +73,12 @@
       "categoryId": "4"
     },
     {
-      "id": "6",
-      "name": "Classic Carpet",
-      "description": "Handmade Persian carpet",
+      "name": "Classic Carpet update",
       "price": 3200000,
+      "description": "Handmade Persian carpet",
+      "categoryId": 4,
       "image": "/image 4.jpg",
-      "categoryId": "4"
+      "id": "6"
     }
   ],
   "user": [
@@ -152,20 +149,35 @@
         }
       ],
       "createdAt": "2025-03-28T14:42:21.041Z"
+    },
+    {
+      "id": "DH29327",
+      "userId": "3528",
+      "totalPrice": 1800000,
+      "status": "Đã gửi hàng",
+      "paymentMethod": "COD",
+      "information": {
+        "name": "Nguyễn Kim Kỳ",
+        "address": "Vĩnh phúc",
+        "phone": "0869976287",
+        "email": "thinh@gmail.com",
+        "paymentMethod": "COD"
+      },
+      "items": [
+        {
+          "name": "Leviosa",
+          "image": "/image 2.jpg",
+          "quantity": 1,
+          "price": 1800000
+        }
+      ],
+      "createdAt": "2025-03-28T15:53:00.775Z"
     }
   ],
   "carts": [
     {
       "userId": "3528",
-      "items": [
-        {
-          "productId": "1",
-          "name": "Sản phẩm 1",
-          "image": "/image 1.jpg",
-          "quantity": 1,
-          "price": 2500000
-        }
-      ],
+      "items": [],
       "id": "b69a"
     },
     {
@@ -175,7 +187,15 @@
     },
     {
       "userId": "3409",
-      "items": [],
+      "items": [
+        {
+          "productId": "1",
+          "name": "Sản phẩm 1",
+          "image": "/image 1.jpg",
+          "quantity": 1,
+          "price": 2500000
+        }
+      ],
       "id": "8081"
     }
   ]
