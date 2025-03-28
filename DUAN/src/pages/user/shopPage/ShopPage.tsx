@@ -43,9 +43,9 @@ const ShopPage = () => {
   const filterProducts = filterCategory== 0 ? products : products?.filter((item)=>filterCategory== item.categoryId);
   console.log(filterProducts);
   
-
   return (
     <div>
+      
       <section className="container max-w-screen-xl m-auto grid grid-cols-12 gap-8 mt-16">
         <div className="col-span-3">
           <SidebarCate

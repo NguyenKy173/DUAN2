@@ -5,7 +5,7 @@ export const ROUTERS ={
         CART:'cart',        
         PAYMENT:"payment",
         HOMEUSER:"homeuser",
-        PRODUCTDETAIL:"productdetail"
+        PRODUCTDETAIL:"/:id/productdetail"
 
     }
 }
