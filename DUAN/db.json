@@ -1,36 +1,52 @@
 {
   "categories": [
-    { "id": 1, "name": "Cafe chair","image":"/image 1.jpg" },
-    { "id": 2, "name": "Sofa","image":"/image 2.jpg" },
-    { "id": 3, "name": "Lamp","image":"/image 3.jpg" },
-    { "id": 4, "name": "Carpet","image":"/image 4.jpg" },
-    { "id": 5, "name": "Cabinet","image":"/image 3.jpg" },
-    { "id": 6, "name": "Tea table","image":"/image 2.jpg" }
-  ],
-  "products": [
     {
       "id": 1,
-      "name": "Sản phẩm 1",
-      "description": "Stylish cafe chair",
-      "price": 2500000,
-      "image": "/image 1.jpg",
-      "categoryId": 1
+      "name": "Cafe chair",
+      "image": "/image 1.jpg"
     },
     {
       "id": 2,
-      "name": "Leviosa",
-      "description": "Elegant modern sofa",
-      "price": 1800000,
-      "image": "/image 2.jpg",
-      "categoryId": 2
+      "name": "Sofa",
+      "image": "/image 2.jpg"
     },
     {
       "id": 3,
+      "name": "Lamp",
+      "image": "/image 3.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Carpet",
+      "image": "/image 4.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Cabinet",
+      "image": "/image 3.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Tea table",
+      "image": "/image 2.jpg"
+    }
+  ],
+  "products": [
+    {
+      "name": "Leviosaaaaaaa",
+      "price": 1800000,
+      "description": "Elegant modern sofaaaa",
+      "categoryId": 2,
+      "image": "/image 2.jpg",
+      "id": 2
+    },
+    {
       "name": "Lolito",
-      "description": "Luxury big sofa",
       "price": 2000000,
+      "description": "Luxury big sofa",
+      "categoryId": 2,
       "image": "/image 3.jpg",
-      "categoryId": 2
+      "id": 3
     },
     {
       "id": 4,
@@ -47,8 +63,7 @@
       "price": 3200000,
       "image": "/image 4.jpg",
       "categoryId": 4
-    }
-    ,
+    },
     {
       "id": 6,
       "name": "Classic Carpet",
@@ -56,6 +71,30 @@
       "price": 3200000,
       "image": "/image 4.jpg",
       "categoryId": 4
+    },
+    {
+      "name": "Thuận",
+      "price": 2,
+      "description": "2",
+      "categoryId": 4,
+      "images": "2",
+      "id": 7
+    },
+    {
+      "name": "Product 12345",
+      "price": 6,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aliquid iste possimus sed ex reiciendis exercitationem aut, explicabo, illo beatae, iusto necessitatibus aliquam veniam voluptatem sequi quasi. Sit, maiores excepturi?\n",
+      "categoryId": 1,
+      "images": "https://picsum.photos/200",
+      "id": 8
+    },
+    {
+      "name": "Product 12345",
+      "price": 111111,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aliquid iste possimus sed ex reiciendis exercitationem aut, explicabo, illo beatae, iusto necessitatibus aliquam veniam voluptatem sequi quasi. Sit, maiores excepturi?\n",
+      "categoryId": 2,
+      "image": " https://picsum.photos/200/120",
+      "id": 9
     }
   ],
   "user": []
