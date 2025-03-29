@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 interface CartItem {
-  id: number;
+  id: string;
   name: string;
   price: number;
   quantity: number;
@@ -15,55 +15,177 @@ const Payment = () => {
     address: "",
     phone: "",
     email: "",
-    paymentMethod: "COD", // Mặc định là thanh toán khi nhận hàng
+    paymentMethod: "COD",
   });
 
   useEffect(() => {
-    const storedCart = localStorage.getItem("cartData");
-    if (storedCart) {
-      setCartData(JSON.parse(storedCart));
+    const userId = localStorage.getItem("userId"); // Lấy userId từ localStorage
+    if (!userId) {
+      alert("Bạn cần đăng nhập để thanh toán!");
+      return;
     }
+
+    // Lấy dữ liệu giỏ hàng từ API dựa theo userId
+    fetch(`http://localhost:3000/carts?userId=${userId}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.length > 0) {
+          setCartData(data[0].items); // Lưu danh sách sản phẩm vào state
+        }
+      })
+      .catch((error) => console.error("Lỗi khi lấy giỏ hàng:", error));
   }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handlePlaceOrder = () => {
+  // const handlePlaceOrder = async () => {
+  //   if (!formData.name || !formData.address || !formData.phone || !formData.email) {
+  //     alert("Vui lòng nhập đầy đủ thông tin!");
+  //     return;
+  //   }
+  
+  //   const userId = localStorage.getItem("userId");
+  //   if (!userId) {
+  //     alert("Bạn cần đăng nhập để đặt hàng!");
+  //     return;
+  //   }
+  
+  //   try {
+  //     // Lấy thông tin giỏ hàng của user
+  //     const cartResponse = await fetch(`http://localhost:3000/carts?userId=${userId}`);
+  //     const carts = await cartResponse.json();
+  
+  //     if (!carts.length) {
+  //       alert("Không tìm thấy giỏ hàng của bạn!");
+  //       return;
+  //     }
+  
+  //     const cartId = carts[0].id; // Lấy ID giỏ hàng thực tế
+  
+  //     // Tạo đơn hàng mới
+  //     const newOrder = {
+  //       id: `DH${Math.floor(Math.random() * 1000000)}`,
+  //       userId,
+  //       totalPrice: cartData.reduce((total, item) => total + item.price * item.quantity, 0),
+  //       status: "Đang xử lí",
+  //       paymentMethod: formData.paymentMethod,
+  //       information: { ...formData },
+  //       items: cartData.map((item) => ({
+  //         productId: item.id, // Đảm bảo lấy đúng productId
+  //         name: item.name,
+  //         image: item.image,
+  //         quantity: item.quantity,
+  //         price: item.price,
+  //       })),
+  //       createdAt: new Date().toISOString(),
+  //     };
+      
+  //     // Gửi đơn hàng lên API
+  //     const orderResponse = await fetch("http://localhost:3000/orders", {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify(newOrder),
+  //     });
+  
+  //     if (!orderResponse.ok) {
+  //       throw new Error("Lỗi khi đặt hàng");
+  //     }
+  
+  //     // Xóa giỏ hàng sau khi đặt hàng thành công
+  //     await fetch(`http://localhost:3000/carts/${cartId}`, {
+  //       method: "PATCH",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify({ items: [] }),
+  //     });
+  
+  //     alert("Đặt hàng thành công!");
+  //     setCartData([]); // Cập nhật UI
+  
+  //   } catch (error) {
+  //     alert("Có lỗi xảy ra, vui lòng thử lại sau!");
+  //   }
+  // };
+  
+
+  const handlePlaceOrder = async () => {
     if (!formData.name || !formData.address || !formData.phone || !formData.email) {
       alert("Vui lòng nhập đầy đủ thông tin!");
       return;
     }
   
-    const newOrder = {
-      id: Math.floor(Math.random() * 1000000), // Tạo mã đơn hàng ngẫu nhiên
-      date: new Date().toLocaleDateString(),
-      total: cartData.reduce((total, item) => total + item.price * item.quantity, 0),
-      status: "Đang xử lý",
-      items: cartData,
-    };
-  
-    // Lấy danh sách đơn hàng hiện tại từ localStorage
-    const storedOrders = JSON.parse(localStorage.getItem("orders") || "[]");
-    storedOrders.push(newOrder);
-    localStorage.setItem("orders", JSON.stringify(storedOrders)); // Lưu lại đơn hàng mới
-  
-    if (formData.paymentMethod === "COD") {
-      alert("Đặt hàng thành công! Bạn sẽ thanh toán khi nhận hàng.");
-    } else {
-      alert("Chuyển hướng đến trang thanh toán online...");
+    const userId = localStorage.getItem("userId");
+    if (!userId) {
+      alert("Bạn cần đăng nhập để đặt hàng!");
+      return;
     }
   
-    // Xóa giỏ hàng khỏi localStorage và cập nhật state
-    localStorage.removeItem("cartData");
-    setCartData([]); // Cập nhật UI
+    try {
+      // Lấy thông tin giỏ hàng của user
+      const cartResponse = await fetch(`http://localhost:3000/carts?userId=${userId}`);
+      const carts = await cartResponse.json();
+  
+      if (!carts.length) {
+        alert("Không tìm thấy giỏ hàng của bạn!");
+        return;
+      }
+  
+      const cartId = carts[0].id; // Lấy ID giỏ hàng thực tế
+  
+      // Lặp qua mỗi sản phẩm trong giỏ hàng và tạo đơn hàng riêng biệt cho từng sản phẩm
+      const orderPromises = cartData.map(async (item) => {
+        const newOrder = {
+          id: `DH${Math.floor(Math.random() * 1000000)}`, // Tạo ID đơn hàng ngẫu nhiên
+          userId,
+          totalPrice: item.price * item.quantity, // Tổng giá trị của đơn hàng này (dành riêng cho sản phẩm)
+          status: "Đang xử lí",
+          paymentMethod: formData.paymentMethod,
+          information: { ...formData },
+          items: [{
+            productId: item.id, // Sản phẩm trong đơn hàng
+            name: item.name,
+            image: item.image,
+            quantity: item.quantity,
+            price: item.price,
+          }],
+          createdAt: new Date().toISOString(),
+        };
+  
+        // Gửi đơn hàng lên API
+        const orderResponse = await fetch("http://localhost:3000/orders", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newOrder),
+        });
+  
+        if (!orderResponse.ok) {
+          throw new Error("Lỗi khi tạo đơn hàng");
+        }
+      });
+  
+      // Chờ tất cả các đơn hàng được gửi lên API
+      await Promise.all(orderPromises);
+  
+      // Xóa giỏ hàng sau khi đặt hàng thành công
+      await fetch(`http://localhost:3000/carts/${cartId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ items: [] }),
+      });
+  
+      alert("Đặt hàng thành công!");
+      setCartData([]); // Cập nhật UI
+  
+    } catch (error) {
+      alert("Có lỗi xảy ra, vui lòng thử lại sau!");
+    }
   };
-
+  
   return (
     <section className="container max-w-screen-xl m-auto mb-4">
       <h1 className="font-semibold text-[32px] mt-16 mb-8">Billing Details</h1>
       <div className="grid grid-cols-2 gap-8">
-        {/* FORM THANH TOÁN */}
         <div>
           <form>
             <div className="mt-4">
@@ -91,8 +213,6 @@ const Payment = () => {
             </div>
           </form>
         </div>
-
-        {/* TÓM TẮT GIỎ HÀNG */}
         <div>
           <p className="font-semibold text-2xl flex justify-between">
             <span>Sản phẩm</span>

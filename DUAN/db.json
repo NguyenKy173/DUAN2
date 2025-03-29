@@ -1,75 +1,87 @@
 {
   "categories": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Cafe chair",
       "image": "/image 1.jpg"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Sofa",
       "image": "/image 2.jpg"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Lamp",
       "image": "/image 3.jpg"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Carpet",
       "image": "/image 4.jpg"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Cabinet",
       "image": "/image 3.jpg"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Tea table",
       "image": "/image 2.jpg"
     }
   ],
   "products": [
     {
-      "name": "Leviosaaaaaaa",
+      "id": "1",
+      "name": "Sản phẩm 1",
+      "description": "Stylish cafe chair",
+      "price": 2500000,
+      "image": "/image 1.jpg",
+      "categoryId": "1"
+    },
+    {
+      "id": "2",
+      "name": "Leviosa",
+      "description": "Elegant modern sofa",
       "price": 1800000,
       "description": "Elegant modern sofaaaa",
       "categoryId": 2,
       "image": "/image 2.jpg",
-      "id": 2
+      "categoryId": "2"
     },
     {
+      "id": "3",
       "name": "Lolito",
       "price": 2000000,
       "description": "Luxury big sofa",
       "categoryId": 2,
       "image": "/image 3.jpg",
-      "id": 3
+      "categoryId": "2"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Luxe Lamp",
       "description": "Modern table lamp",
       "price": 500000,
       "image": "/image 4.jpg",
-      "categoryId": 3
+      "categoryId": "3"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Classic Carpet",
       "description": "Handmade Persian carpet",
       "price": 3200000,
       "image": "/image 4.jpg",
-      "categoryId": 4
+      "categoryId": "4"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Classic Carpet",
       "description": "Handmade Persian carpet",
       "price": 3200000,
       "image": "/image 4.jpg",
+<<<<<<< HEAD
       "categoryId": 4
     },
     {
@@ -103,7 +115,104 @@
       "categoryId": 6,
       "image": "https://picsum.photos/200/120",
       "id": 10
+=======
+      "categoryId": "4"
+>>>>>>> c06e6a847ddffc578988ed49c4dbf7ed9eeb11cd
     }
   ],
-  "user": []
+  "user": [
+    {
+      "id": "3409",
+      "username": "ky",
+      "password": "123456",
+      "email": "1ka@gmail.com",
+      "role": "1"
+    },
+    {
+      "id": "3528",
+      "username": "ky1",
+      "password": "123456",
+      "email": "ka1@gmail.com",
+      "role": "0"
+    },
+    {
+      "id": "cae2",
+      "username": "ky12",
+      "email": "ka@gmail.com",
+      "password": "123456"
+    }
+  ],
+  "orders": [
+    {
+      "id": "DH630784",
+      "userId": "3528",
+      "totalPrice": 5000000,
+      "status": "Đang xử lý",
+      "paymentMethod": "COD",
+      "information": {
+        "name": "Nguyễn Kim Kỳ",
+        "address": "Vĩnh phúc",
+        "phone": "0869976287",
+        "email": "user@gmail.com",
+        "paymentMethod": "COD"
+      },
+      "items": [
+        {
+          "name": "Sản phẩm 1",
+          "image": "/image 1.jpg",
+          "quantity": 2,
+          "price": 2500000
+        }
+      ],
+      "createdAt": "2025-03-28T14:42:21.041Z"
+    },
+    {
+      "id": "DH226124",
+      "userId": "3528",
+      "totalPrice": 1800000,
+      "status": "Đang xử lý",
+      "paymentMethod": "COD",
+      "information": {
+        "name": "Nguyễn Kim Kỳ",
+        "address": "Vĩnh phúc",
+        "phone": "0869976287",
+        "email": "user@gmail.com",
+        "paymentMethod": "COD"
+      },
+      "items": [
+        {
+          "name": "Leviosa",
+          "image": "/image 2.jpg",
+          "quantity": 1,
+          "price": 1800000
+        }
+      ],
+      "createdAt": "2025-03-28T14:42:21.041Z"
+    }
+  ],
+  "carts": [
+    {
+      "userId": "3528",
+      "items": [
+        {
+          "productId": "1",
+          "name": "Sản phẩm 1",
+          "image": "/image 1.jpg",
+          "quantity": 1,
+          "price": 2500000
+        }
+      ],
+      "id": "b69a"
+    },
+    {
+      "userId": "cae2",
+      "items": [],
+      "id": "9fb8"
+    },
+    {
+      "userId": "3409",
+      "items": [],
+      "id": "8081"
+    }
+  ]
 }

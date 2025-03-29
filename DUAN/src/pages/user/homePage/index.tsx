@@ -6,12 +6,20 @@ import "./style.css";
 import { useCart } from "../../../contact/cartContact";
 
 interface Product {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  image: string;
-}
+    id: number;
+    name: string;
+    description: string;
+    price: number;
+    image: string;
+  }
+
+  //Fetch api từ db
+  const fetchProduct = async (): Promise<Product[]> => {
+    const response = await fetch("http://localhost:3000/products");
+    if (!response.ok) throw new Error("Không tìm thấy sản phẩm");
+    return await response.json(); // Thêm await ở đây
+  };
+const HomePage = () =>{
 
 //Fetch api từ db
 const fetchProduct = async (): Promise<Product[]> => {
@@ -147,9 +155,41 @@ const HomePage = () => {
                       }
                       className="border border-yellow-700 text-yellow-700 w-full font-semibold text-base py-2 hover:bg-yellow-700 hover:text-white transition"
                     >
-                      Add to Cart
-                    </button>
-                  </Link>
+                    {products?.map((item) => (
+                        <div key={item.id} className="bg-white shadow-lg rounded-lg overflow-hidden">
+                        <div className="overflow-hidden">
+                            <Link to="/productdetail">
+                            <img
+                                src={item.image}
+                                alt=""
+                                className="hover:scale-110 transition-transform duration-500 w-100"
+                                
+                            />
+                            </Link>
+                        </div>
+                        <div className="bg-[#F5F5F5] p-4">
+                            <h3 className="font-semibold text-xl">{item.name}</h3>
+                            <p className="text-[#898989] text-base mt-1 mb-2">{item.description}</p>
+                            <p className="font-semibold text-xl text-red-600 mb-3">{fomatter(item.price)}</p>   
+                            <button 
+                                onClick={(e) => {
+                                    e.preventDefault(); // Ngăn chặn hành động điều hướng trước khi thêm vào giỏ hàng
+                                    const userId = localStorage.getItem("userId");
+                                    if (!userId) {
+                                        alert("Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng!");
+                                        return;
+                                    }
+                                    addToCart(item.id);
+                                }}
+                                className="border border-yellow-700 text-yellow-700 w-full font-semibold text-base py-2 hover:bg-yellow-700 hover:text-white transition"
+                                >
+                                Add to Cart
+                            </button>
+                        </div>
+                        </div>
+                    ))}
+                    </Carousel>
+                <div>
                 </div>
               </div>
             ))}
