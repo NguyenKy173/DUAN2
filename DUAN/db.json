@@ -84,17 +84,25 @@
       "name": "Product 12345",
       "price": 6,
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aliquid iste possimus sed ex reiciendis exercitationem aut, explicabo, illo beatae, iusto necessitatibus aliquam veniam voluptatem sequi quasi. Sit, maiores excepturi?\n",
-      "categoryId": 1,
-      "images": "https://picsum.photos/200",
+      "categoryId": 2,
+      "image": " https://picsum.photos/200/120",
       "id": 8
     },
     {
       "name": "Product 12345",
       "price": 111111,
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aliquid iste possimus sed ex reiciendis exercitationem aut, explicabo, illo beatae, iusto necessitatibus aliquam veniam voluptatem sequi quasi. Sit, maiores excepturi?\n",
-      "categoryId": 2,
+      "categoryId": 3,
       "image": " https://picsum.photos/200/120",
       "id": 9
+    },
+    {
+      "name": "Nguyen Huy Thuan",
+      "price": 2222,
+      "description": "No value exists in scope for the shorthand property 'values'. Either declare one or provide an initializer.ts(18004)\n",
+      "categoryId": 6,
+      "image": "https://picsum.photos/200/120",
+      "id": 10
     }
   ],
   "user": []
