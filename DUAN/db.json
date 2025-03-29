@@ -76,7 +76,7 @@
       "name": "Classic Carpet update",
       "price": 3200000,
       "description": "Handmade Persian carpet",
-      "categoryId": 1,
+      "categoryId": 4,
       "image": "/image 4.jpg",
       "id": "6"
     }

@@ -4,7 +4,7 @@ import AdminLayout from "./pages/admin/theme/adminLayout";
 import Dashboard from "./pages/admin/dashBoard";
 import AdminList from "./pages/admin/adminList";
 import AdminAdd from "./pages/admin/admnAdd";
-
+import AdminUpdate from "./pages/admin/adminUpdate/adminUpdate";
 import AdminOrderList from "./pages/admin/adminOrder/list";
 import OrderHistory from "./pages/admin/adminOrder/history";
 import UserList from "./pages/admin/adminUser/list";

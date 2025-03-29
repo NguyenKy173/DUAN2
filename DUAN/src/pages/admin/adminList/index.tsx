@@ -79,7 +79,7 @@ const AdminList = () => {
                   <td className="p-4 font-semibold text-gray-800">
                     {category ? category.name : "Không xác định"}
                   </td>
-                  <td className="p-4 text-center">
+                  {/* <td className="p-4 text-center">
                     <button className="mr-2 p-2 rounded-lg bg-blue-500 text-white hover:bg-blue-600 transition">
                       <Link to={`/admin/${product.id}/update`}><Pencil size={16} /></Link>
                     </button>
@@ -95,7 +95,22 @@ const AdminList = () => {
                         </button>
                       </Popconfirm>
                     </button>
-                  </td>
+                  </td> */}
+                  <td className="p-4 text-center">
+                  <button className="mr-2 p-2 rounded-lg bg-blue-500 text-white hover:bg-blue-600 transition">
+                    <Link to={`/admin/${product.id}/update`}><Pencil size={16} /></Link>
+                  </button>
+                  <Popconfirm
+                    title="Bạn có chắc chắn muốn xóa?"
+                    onConfirm={() => mutate(product.id)}
+                    okText="Yes"
+                    cancelText="No"
+                  >
+                    <button className="p-2 rounded-lg bg-red-500 text-white hover:bg-red-600 transition">
+                      <Trash2 size={16} />
+                    </button>
+                  </Popconfirm>
+                </td>
                 </tr>
               );
             })}
