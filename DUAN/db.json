@@ -45,8 +45,6 @@
       "name": "Leviosa",
       "description": "Elegant modern sofa",
       "price": 1800000,
-      "description": "Elegant modern sofaaaa",
-      "categoryId": 2,
       "image": "/image 2.jpg",
       "categoryId": "2"
     },
@@ -55,7 +53,6 @@
       "name": "Lolito",
       "price": 2000000,
       "description": "Luxury big sofa",
-      "categoryId": 2,
       "image": "/image 3.jpg",
       "categoryId": "2"
     },
@@ -68,56 +65,20 @@
       "categoryId": "3"
     },
     {
-      "id": "5",
       "name": "Classic Carpet",
-      "description": "Handmade Persian carpet",
       "price": 3200000,
-      "image": "/image 4.jpg",
-      "categoryId": "4"
-    },
-    {
-      "id": "6",
-      "name": "Classic Carpet",
       "description": "Handmade Persian carpet",
-      "price": 3200000,
-      "image": "/image 4.jpg",
-<<<<<<< HEAD
-      "categoryId": 4
-    },
-    {
-      "name": "Thuận",
-      "price": 2,
-      "description": "2",
-      "categoryId": 4,
-      "images": "2",
-      "id": 7
-    },
-    {
-      "name": "Product 12345",
-      "price": 6,
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aliquid iste possimus sed ex reiciendis exercitationem aut, explicabo, illo beatae, iusto necessitatibus aliquam veniam voluptatem sequi quasi. Sit, maiores excepturi?\n",
       "categoryId": 2,
-      "image": " https://picsum.photos/200/120",
-      "id": 8
+      "image": "/image 4.jpg",
+      "id": "5"
     },
     {
-      "name": "Product 12345",
-      "price": 111111,
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aliquid iste possimus sed ex reiciendis exercitationem aut, explicabo, illo beatae, iusto necessitatibus aliquam veniam voluptatem sequi quasi. Sit, maiores excepturi?\n",
-      "categoryId": 3,
-      "image": " https://picsum.photos/200/120",
-      "id": 9
-    },
-    {
-      "name": "Nguyen Huy Thuan",
-      "price": 2222,
-      "description": "No value exists in scope for the shorthand property 'values'. Either declare one or provide an initializer.ts(18004)\n",
-      "categoryId": 6,
-      "image": "https://picsum.photos/200/120",
-      "id": 10
-=======
-      "categoryId": "4"
->>>>>>> c06e6a847ddffc578988ed49c4dbf7ed9eeb11cd
+      "name": "Classic Carpet update",
+      "price": 3200000,
+      "description": "Handmade Persian carpet",
+      "categoryId": 1,
+      "image": "/image 4.jpg",
+      "id": "6"
     }
   ],
   "user": [
@@ -188,20 +149,58 @@
         }
       ],
       "createdAt": "2025-03-28T14:42:21.041Z"
+    },
+    {
+      "id": "DH29327",
+      "userId": "3528",
+      "totalPrice": 1800000,
+      "status": "Đã gửi hàng",
+      "paymentMethod": "COD",
+      "information": {
+        "name": "Nguyễn Kim Kỳ",
+        "address": "Vĩnh phúc",
+        "phone": "0869976287",
+        "email": "thinh@gmail.com",
+        "paymentMethod": "COD"
+      },
+      "items": [
+        {
+          "name": "Leviosa",
+          "image": "/image 2.jpg",
+          "quantity": 1,
+          "price": 1800000
+        }
+      ],
+      "createdAt": "2025-03-28T15:53:00.775Z"
+    },
+    {
+      "id": "DH233971",
+      "userId": "3409",
+      "totalPrice": 5000000,
+      "status": "Đã gửi hàng",
+      "paymentMethod": "COD",
+      "information": {
+        "name": "Nguyễn Kim Kỳ",
+        "address": "Vĩnh phúc",
+        "phone": "0869976287",
+        "email": "user@gmail.com",
+        "paymentMethod": "COD"
+      },
+      "items": [
+        {
+          "name": "Sản phẩm 1",
+          "image": "/image 1.jpg",
+          "quantity": 2,
+          "price": 2500000
+        }
+      ],
+      "createdAt": "2025-03-29T02:16:51.973Z"
     }
   ],
   "carts": [
     {
       "userId": "3528",
-      "items": [
-        {
-          "productId": "1",
-          "name": "Sản phẩm 1",
-          "image": "/image 1.jpg",
-          "quantity": 1,
-          "price": 2500000
-        }
-      ],
+      "items": [],
       "id": "b69a"
     },
     {

@@ -8,6 +8,7 @@ import AdminAdd from "./pages/admin/admnAdd";
 import AdminOrderList from "./pages/admin/adminOrder/list";
 import OrderHistory from "./pages/admin/adminOrder/history";
 import UserList from "./pages/admin/adminUser/list";
+import AdminUpdate from "./pages/admin/adminUpdate/adminUpdate";
 const renderAdminRouter = () => {
     
 
