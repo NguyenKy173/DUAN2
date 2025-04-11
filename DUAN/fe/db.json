@@ -33,12 +33,11 @@
   ],
   "products": [
     {
-      "id": "1",
       "name": "Sản phẩm 1",
       "description": "Stylish cafe chair",
       "price": 50000,
       "image": "/image 1.jpg",
-      "categoryId": "1"
+      "id": "1"
     },
     {
       "id": "2",
@@ -79,6 +78,14 @@
       "categoryId": 1,
       "image": "/image 4.jpg",
       "id": "6"
+    },
+    {
+      "name": "Nguyen Huy Thuan",
+      "price": 111,
+      "description": "111",
+      "categoryId": 3,
+      "image": "https://picsum.photos/200/120",
+      "id": "taxLjAk"
     }
   ],
   "user": [
@@ -160,7 +167,7 @@
         "name": "Nguyễn Kim Kỳ",
         "address": "Vĩnh phúc",
         "phone": "0869976287",
-        "email": "",
+        "email": "user@gmail.com",
         "paymentMethod": "COD"
       },
       "items": [
@@ -171,7 +178,76 @@
           "price": 50000
         }
       ],
-      "createdAt": "2025-04-11T17:59:27.542Z"
+      "createdAt": "2025-03-28T14:42:21.041Z"
+    },
+    {
+      "id": "DH29327",
+      "userId": "3528",
+      "totalPrice": 1800000,
+      "status": "Đã gửi hàng",
+      "paymentMethod": "COD",
+      "information": {
+        "name": "Nguyễn Kim Kỳ",
+        "address": "Vĩnh phúc",
+        "phone": "0869976287",
+        "email": "thinh@gmail.com",
+        "paymentMethod": "COD"
+      },
+      "items": [
+        {
+          "name": "Leviosa",
+          "image": "/image 2.jpg",
+          "quantity": 1,
+          "price": 1800000
+        }
+      ],
+      "createdAt": "2025-03-28T15:53:00.775Z"
+    },
+    {
+      "id": "DH233971",
+      "userId": "3409",
+      "totalPrice": 5000000,
+      "status": "Đã gửi hàng",
+      "paymentMethod": "COD",
+      "information": {
+        "name": "Nguyễn Kim Kỳ",
+        "address": "Vĩnh phúc",
+        "phone": "0869976287",
+        "email": "user@gmail.com",
+        "paymentMethod": "COD"
+      },
+      "items": [
+        {
+          "name": "Sản phẩm 1",
+          "image": "/image 1.jpg",
+          "quantity": 2,
+          "price": 2500000
+        }
+      ],
+      "createdAt": "2025-03-29T02:16:51.973Z"
+    },
+    {
+      "id": "DH737291",
+      "userId": "3528",
+      "totalPrice": 999,
+      "status": "Đang xử lý",
+      "paymentMethod": "COD",
+      "information": {
+        "name": "Nguyen Huy Thuan",
+        "address": "111",
+        "phone": "123456789",
+        "email": "thuannhph39027@fpt.edu.vn",
+        "paymentMethod": "COD"
+      },
+      "items": [
+        {
+          "name": "Nguyen Huy Thuan",
+          "image": "https://picsum.photos/200/120",
+          "quantity": 9,
+          "price": 111
+        }
+      ],
+      "createdAt": "2025-04-11T03:52:35.790Z"
     }
   ],
   "carts": [
