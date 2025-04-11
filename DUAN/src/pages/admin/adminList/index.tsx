@@ -8,6 +8,8 @@ import { useListCategories } from "../../../hooks/categoriesHooks";
 const AdminList = () => {
   const { mutate } = useDelete({ resource: "products" });
   const { data: categories } = useListCategories({ resource: "categories" });
+  console.log("Danh mục:", categories);
+
 
   const fomatter = (Number: any) => {
     return new Intl.NumberFormat("vi-VN", {
@@ -56,7 +58,9 @@ const AdminList = () => {
           {/* Body */}
           <tbody>
             {products.map((product, index) => {
-              const category = categories?.find((cate:any) => cate.id === product.categoryId);
+              const category = categories?.find(
+                (cate: any) => String(cate.id) == product.categoryId
+              );
 
               return (
                 <tr
@@ -97,20 +101,22 @@ const AdminList = () => {
                     </button>
                   </td> */}
                   <td className="p-4 text-center">
-                  <button className="mr-2 p-2 rounded-lg bg-blue-500 text-white hover:bg-blue-600 transition">
-                    <Link to={`/admin/${product.id}/update`}><Pencil size={16} /></Link>
-                  </button>
-                  <Popconfirm
-                    title="Bạn có chắc chắn muốn xóa?"
-                    onConfirm={() => mutate(product.id)}
-                    okText="Yes"
-                    cancelText="No"
-                  >
-                    <button className="p-2 rounded-lg bg-red-500 text-white hover:bg-red-600 transition">
-                      <Trash2 size={16} />
+                    <button className="mr-2 p-2 rounded-lg bg-blue-500 text-white hover:bg-blue-600 transition">
+                      <Link to={`/admin/${product.id}/update`}>
+                        <Pencil size={16} />
+                      </Link>
                     </button>
-                  </Popconfirm>
-                </td>
+                    <Popconfirm
+                      title="Bạn có chắc chắn muốn xóa?"
+                      onConfirm={() => mutate(product.id)}
+                      okText="Yes"
+                      cancelText="No"
+                    >
+                      <button className="p-2 rounded-lg bg-red-500 text-white hover:bg-red-600 transition">
+                        <Trash2 size={16} />
+                      </button>
+                    </Popconfirm>
+                  </td>
                 </tr>
               );
             })}

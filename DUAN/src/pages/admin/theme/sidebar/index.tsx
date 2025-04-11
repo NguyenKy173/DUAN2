@@ -119,6 +119,12 @@ const Sidebar = () => {
           <span>Quản lí đơn hàng</span>
         </Link>
       </li>
+      <li className="sidebar-item">
+        <Link to="/admin/adminStatistics" className="sidebar-link">
+          <i className='bx bxs-bar-chart-alt-2'></i>
+          <span>Quản lí thống kê</span>
+        </Link>
+</li>
     </ul>
 
     

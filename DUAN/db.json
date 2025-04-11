@@ -33,12 +33,12 @@
   ],
   "products": [
     {
-      "id": "1",
       "name": "Sản phẩm 1",
-      "description": "Stylish cafe chair",
       "price": 2500000,
+      "description": "Stylish cafe chair",
+      "categoryId": 1,
       "image": "/image 1.jpg",
-      "categoryId": "1"
+      "id": "1"
     },
     {
       "id": "2",
@@ -79,6 +79,14 @@
       "categoryId": 4,
       "image": "/image 4.jpg",
       "id": "6"
+    },
+    {
+      "name": "Nguyen Huy Thuan",
+      "price": 111,
+      "description": "111",
+      "categoryId": 3,
+      "image": "https://picsum.photos/200/120",
+      "id": "taxLjAk"
     }
   ],
   "user": [
@@ -104,29 +112,6 @@
     }
   ],
   "orders": [
-    {
-      "id": "DH630784",
-      "userId": "3528",
-      "totalPrice": 5000000,
-      "status": "Đang xử lý",
-      "paymentMethod": "COD",
-      "information": {
-        "name": "Nguyễn Kim Kỳ",
-        "address": "Vĩnh phúc",
-        "phone": "0869976287",
-        "email": "user@gmail.com",
-        "paymentMethod": "COD"
-      },
-      "items": [
-        {
-          "name": "Sản phẩm 1",
-          "image": "/image 1.jpg",
-          "quantity": 2,
-          "price": 2500000
-        }
-      ],
-      "createdAt": "2025-03-28T14:42:21.041Z"
-    },
     {
       "id": "DH226124",
       "userId": "3528",
@@ -195,6 +180,29 @@
         }
       ],
       "createdAt": "2025-03-29T02:16:51.973Z"
+    },
+    {
+      "id": "DH737291",
+      "userId": "3528",
+      "totalPrice": 999,
+      "status": "Đang xử lý",
+      "paymentMethod": "COD",
+      "information": {
+        "name": "Nguyen Huy Thuan",
+        "address": "111",
+        "phone": "123456789",
+        "email": "thuannhph39027@fpt.edu.vn",
+        "paymentMethod": "COD"
+      },
+      "items": [
+        {
+          "name": "Nguyen Huy Thuan",
+          "image": "https://picsum.photos/200/120",
+          "quantity": 9,
+          "price": 111
+        }
+      ],
+      "createdAt": "2025-04-11T03:52:35.790Z"
     }
   ],
   "carts": [

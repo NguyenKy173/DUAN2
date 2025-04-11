@@ -104,7 +104,7 @@ const HomePage = () =>{
                     {products?.map((item) => (
                         <div key={item.id} className="bg-white shadow-lg rounded-lg overflow-hidden">
                         <div className="overflow-hidden">
-                            <Link to="/productdetail">
+                            <Link to={`${item.id}/productdetail`}>
                             <img
                                 src={item.image}
                                 alt=""

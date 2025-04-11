@@ -8,6 +8,7 @@ import AdminUpdate from "./pages/admin/adminUpdate/adminUpdate";
 import AdminOrderList from "./pages/admin/adminOrder/list";
 import OrderHistory from "./pages/admin/adminOrder/history";
 import UserList from "./pages/admin/adminUser/list";
+import AdminStatistics from "./pages/admin/adminStatistics/adminStatistics";
 const renderAdminRouter = () => {
     
 
@@ -21,6 +22,7 @@ const renderAdminRouter = () => {
                 <Route path="adminListOrders" element={<AdminOrderList />} />
                 <Route path="history/:userId" element={<OrderHistory />} />
                 <Route path="userList" element={<UserList />} />
+                <Route path="adminStatistics" element={<AdminStatistics />}/>
             </Routes>
         </AdminLayout>
         
