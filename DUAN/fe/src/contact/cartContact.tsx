@@ -136,9 +136,25 @@ export const useCart = () => {
     );
   };
 
-  const clearCart = () => {
-    updateCart([]);
+  const clearCart = async () => {
+    const userId = localStorage.getItem("userId");
+    if (!userId) return;
+  
+    const response = await fetch(`http://localhost:3000/carts?userId=${userId}`);
+    const carts = await response.json();
+    if (!carts.length) return;
+  
+    const cartId = carts[0].id;
+  
+    await fetch(`http://localhost:3000/carts/${cartId}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ items: [] }),
+    });
+  
+    setCart([]); // ← hàm này cập nhật state trong hook (dùng useState hoặc useEffect)
   };
+  
 
   // ✅ Đếm tổng số sản phẩm trong giỏ hàng
   const cartQuantity = useMemo(() => {

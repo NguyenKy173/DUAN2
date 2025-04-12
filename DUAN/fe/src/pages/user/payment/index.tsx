@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useCartContext } from "../../../contact/CartContext";
 
 interface CartItem {
   id: string;
@@ -10,7 +11,8 @@ interface CartItem {
 }
 
 const Payment = () => {
-  const nav = useNavigate()
+  const nav = useNavigate();
+  const { cart, clearCart } = useCartContext();
   const [cartData, setCartData] = useState<CartItem[]>([]);
   const [formData, setFormData] = useState({
     name: "",
@@ -21,18 +23,17 @@ const Payment = () => {
   });
 
   useEffect(() => {
-    const userId = localStorage.getItem("userId"); // Lấy userId từ localStorage
+    const userId = localStorage.getItem("userId");
     if (!userId) {
       alert("Bạn cần đăng nhập để thanh toán!");
       return;
     }
 
-    // Lấy dữ liệu giỏ hàng từ API dựa theo userId
     fetch(`http://localhost:3000/carts?userId=${userId}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.length > 0) {
-          setCartData(data[0].items); // Lưu danh sách sản phẩm vào state
+          setCartData(data[0].items);
         }
       })
       .catch((error) => console.error("Lỗi khi lấy giỏ hàng:", error));
@@ -43,92 +44,72 @@ const Payment = () => {
   };
 
   const handlePlaceOrder = async () => {
-    if (!formData.name || !formData.address || !formData.phone ) {
+    if (!formData.name || !formData.address || !formData.phone) {
       alert("Vui lòng nhập đầy đủ thông tin!");
       return;
     }
-  
+
     const userId = localStorage.getItem("userId");
     if (!userId) {
       alert("Bạn cần đăng nhập để đặt hàng!");
       return;
     }
-  
+
     try {
-      // Lấy thông tin giỏ hàng của user
       const cartResponse = await fetch(`http://localhost:3000/carts?userId=${userId}`);
       const carts = await cartResponse.json();
-  
+
       if (!carts.length) {
         alert("Không tìm thấy giỏ hàng của bạn!");
         return;
       }
-  
-      const cartId = carts[0].id; // Lấy ID giỏ hàng thực tế
-  
-      // Gộp tất cả sản phẩm vào một đơn hàng
-          const newOrder = {
-            id: `DH${Math.floor(Math.random() * 1000000)}`,
-            userId,
-            totalPrice: cartData.reduce((total, item) => total + item.price * item.quantity, 0),
-            status: "Đang xử lý",
-            paymentMethod: formData.paymentMethod,
-            information: { ...formData },
-            items: cartData.map((item) => ({
-              productId: item.id,
-              name: item.name,
-              image: item.image,
-              quantity: item.quantity,
-              price: item.price,
-            })),
-            createdAt: new Date().toISOString(),
-          };
 
-          const orderResponse = await fetch("http://localhost:3000/orders", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(newOrder),
-          });
+      const cartId = carts[0].id;
 
-          if (!orderResponse.ok) {
-            throw new Error("Lỗi khi tạo đơn hàng");
-          }
-      // 👉 Nếu chọn thanh toán online → gọi server để tạo URL thanh toán VNPAY
-      
+      const newOrder = {
+        id: `DH${Math.floor(Math.random() * 1000000)}`,
+        userId,
+        totalPrice: cartData.reduce((total, item) => total + item.price * item.quantity, 0),
+        status: "Đang xử lý",
+        paymentMethod: formData.paymentMethod,
+        information: { ...formData },
+        items: cartData.map((item) => ({
+          productId: item.id,
+          name: item.name,
+          image: item.image,
+          quantity: item.quantity,
+          price: item.price,
+        })),
+        createdAt: new Date().toISOString(),
+      };
+
+      const orderResponse = await fetch("http://localhost:3000/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newOrder),
+      });
+
+      if (!orderResponse.ok) {
+        throw new Error("Lỗi khi tạo đơn hàng");
+      }
+
       if (formData.paymentMethod === "Online") {
         const totalAmount = cartData.reduce((total, item) => total + item.price * item.quantity, 0);
-        // const totalAmount = cartData.reduce((total, item) => total + item.price * item.quantity, 0) * 100;
-        // 🔍 Log dữ liệu gửi lên server
-        console.log("🔁 Đang gửi yêu cầu tạo URL VNPAY với dữ liệu:");
-        console.log({
-          amount: totalAmount,
-          bankCode: "",
-          language: "vn",
-          orderInfo: `Thanh toán đơn hàng ${newOrder.id}`,
-          orderId: newOrder.id,
-        });
-      
         try {
           const response = await fetch("http://localhost:3002/create_payment_url", {
             method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               amount: totalAmount,
-              bankCode: "",
-              language: "vn",
-              orderInfo: `Thanh toán đơn hàng ${newOrder.id}`,
-              orderId: newOrder.id,
+              orderId: `DH${Math.floor(Math.random() * 1000000)}`,
+              orderInfo: `Thanh toán đơn hàng`,
             }),
           });
       
           const result = await response.json();
       
-          // 🔍 Log kết quả phản hồi từ server
-          console.log("✅ Kết quả phản hồi từ server:", result);
-      
           if (result.paymentUrl) {
+            // 👉 redirect tới VNPAY trước, đơn hàng tạo sau khi thanh toán về returnUrl
             window.location.href = result.paymentUrl;
             return;
           } else {
@@ -137,31 +118,31 @@ const Payment = () => {
           }
         } catch (error) {
           console.error("❌ Lỗi khi gọi API tạo thanh toán VNPAY:", error);
+          return;
         }
       }
       
-  
-      // 👉 Nếu chọn COD → xử lý xoá giỏ hàng luôn
-      await fetch(`http://localhost:3000/carts/${cartId}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items: [] }),
-      });
-  
-      alert("Đặt hàng thành công!");
-      setCartData([]); // Cập nhật UI
-      nav("/ok")
-  
-    } catch (error) {
+
+      // ✅ Nếu chọn COD: xoá giỏ hàng và reload lại cartData
+      // Sau khi PATCH xong
+      await clearCart(); // ← xóa cả trên server và update state
+
+        alert("Đặt hàng thành công!");
+
+        setTimeout(() => {
+          nav("/ok");
+        }, 300);
+      }
+       catch (error) {
       console.error("Lỗi khi đặt hàng:", error);
       alert("Có lỗi xảy ra, vui lòng thử lại sau!");
     }
   };
-  
+
   return (
     <section className="container max-w-screen-xl m-auto mb-4">
       <h1 className="font-semibold text-[32px] mt-16 mb-8">Billing Details</h1>
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
           <form>
             <div className="mt-4">
